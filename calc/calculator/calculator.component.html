@@ -1,0 +1,47 @@
+<div style="display: flex;
+height: 720px; 
+justify-content: center;
+align-items: center;
+">
+
+  <div class="mycalc">
+
+    <mat-form-field class="calculater-full-width">
+      <mat-label>Number</mat-label>
+      <input #box (keyup.enter)="calcValue(box.value)" [(ngModel)]="toShow" matInput placeholder="Enter the number"
+        value="">
+    </mat-form-field>
+
+    <div class="all-btn">
+      <div class="all-btn-numbers">
+        <button mat-mini-fab (click)="writeToInput(number)" *ngFor="let number of numbers">{{ number }}</button>
+        <div class="btn-extra">
+          <button mat-mini-fab (click)="writeToInput('.')">.</button>
+          <button mat-mini-fab (click)="back()">back</button>
+        </div>
+      </div>
+      <div class="all-btn-signs">
+        <button mat-mini-fab (click)="writeToInput('+')">+</button>
+        <button mat-mini-fab (click)="writeToInput('-')">-</button>
+        <button mat-mini-fab (click)="writeToInput('*')">*</button>
+        <button mat-mini-fab (click)="writeToInput('/')">/</button>
+      </div>
+    </div>
+    <div class="btn-clear-equals">
+      <button mat-mini-fab id="clear" (click)="clear()">C</button>
+      <button mat-mini-fab id="equals" (click)="calcValue(box.value)">=</button>
+    </div>
+    <div class="ingCalc">
+      <button mat-mini-fab (click)="writeToInput('%')">%</button>
+      <button mat-mini-fab (click)="writeToInput('(')">(</button>
+      <button mat-mini-fab (click)="writeToInput(')')">)</button>
+      <button mat-mini-fab (click)="sin()">sin</button>
+      <button mat-mini-fab (click)="cos()">cos</button>
+      <button mat-mini-fab (click)="tan()">tan</button>
+      <button mat-mini-fab (click)="fact()">x!</button>
+      <button mat-mini-fab (click)="log()">log</button>
+      <button mat-mini-fab (click)="sqrt()">√</button>
+      <button mat-mini-fab (click)="pi()">π</button>
+    </div>
+  </div>
+</div>
